@@ -4,6 +4,307 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ForgeOne AI Workspace</title>
+    <link rel="stylesheet" href="./styles.css?v=20260709b" />
+  </head>
+  <body>
+    <main class="shell" aria-label="ForgeOne AI workspace">
+      <aside class="sidebar" aria-label="Workspace navigation">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">F1</div>
+          <div>
+            <strong>ForgeOne</strong>
+            <span id="ownerTag">Personal AI OS</span>
+          </div>
+        </div>
+
+        <nav class="nav-list" aria-label="Primary">
+          <button class="nav-item active" type="button" data-section="studio">
+            <span class="icon" aria-hidden="true">01</span>
+            <span>Studio</span>
+          </button>
+          <button class="nav-item" type="button" data-section="projects">
+            <span class="icon" aria-hidden="true">02</span>
+            <span>Projects</span>
+          </button>
+          <button class="nav-item" type="button" data-section="vault">
+            <span class="icon" aria-hidden="true">03</span>
+            <span>Vault</span>
+          </button>
+          <button class="nav-item" type="button" data-section="launch">
+            <span class="icon" aria-hidden="true">04</span>
+            <span>Launch</span>
+          </button>
+          <button class="nav-item" type="button" data-section="access">
+            <span class="icon" aria-hidden="true">05</span>
+            <span>Access</span>
+          </button>
+        </nav>
+
+        <section class="quota" aria-label="Readiness score">
+          <div class="quota-head">
+            <span>Legit Score</span>
+            <strong id="legitScore">68%</strong>
+          </div>
+          <div class="meter" aria-hidden="true"><span id="legitBar"></span></div>
+          <p id="legitText">Identity, project structure, privacy gates, and export paths are staged locally.</p>
+        </section>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <h1>Your private AI build room, tuned to your brand.</h1>
+            <p>ForgeOne keeps your plans, projects, prompts, and agent routes in one original workspace before anything goes public.</p>
+          </div>
+          <div class="top-actions" aria-label="Global actions">
+            <button class="icon-button" type="button" id="privacyToggle" title="Toggle private mode" aria-pressed="true">
+              <span aria-hidden="true">PV</span>
+            </button>
+            <button class="icon-button primary" type="button" id="runButton" title="Run workspace">
+              <span aria-hidden="true">GO</span>
+            </button>
+          </div>
+        </header>
+
+        <section class="owner-panel" aria-label="Owner setup">
+          <form class="owner-form" id="ownerForm">
+            <label>
+              <span>Your name or brand</span>
+              <input id="ownerName" autocomplete="name" placeholder="Brad's AI Lab" />
+            </label>
+            <label>
+              <span>Main goal</span>
+              <input id="ownerGoal" placeholder="Build apps, stores, designs, and content" />
+            </label>
+            <label>
+              <span>Default privacy</span>
+              <select id="ownerPrivacy">
+                <option value="Private by default">Private by default</option>
+                <option value="Review before export">Review before export</option>
+                <option value="Local only">Local only</option>
+              </select>
+            </label>
+            <button type="submit">Save Identity</button>
+          </form>
+        </section>
+
+        <section class="mode-strip" aria-label="Creation mode">
+          <button class="mode active" type="button" data-mode="command">Command</button>
+          <button class="mode" type="button" data-mode="shop">Shop Builder</button>
+          <button class="mode" type="button" data-mode="canvas">Design Canvas</button>
+          <button class="mode" type="button" data-mode="code">App Builder</button>
+          <button class="mode" type="button" data-mode="research">Research</button>
+        </section>
+
+        <section class="main-grid" id="studio">
+          <section class="conversation" aria-label="AI command conversation">
+            <div class="panel-title">
+              <span>Command Thread</span>
+              <strong id="privacyState">Private</strong>
+            </div>
+            <div class="thread" id="thread">
+              <article class="message user">
+                <span>You</span>
+                <p>Create an original personal AI system that can plan businesses, make creative assets, build apps, help launch stores, and keep my work private.</p>
+              </article>
+              <article class="message ai">
+                <span>ForgeOne</span>
+                <p>I will route that through brand, build, commerce, research, vault, and launch lanes. The workspace stays yours until you approve an export.</p>
+              </article>
+            </div>
+            <form class="composer" id="composer">
+              <label class="sr-only" for="prompt">Prompt</label>
+              <textarea id="prompt" rows="3">Make this workspace mine: original identity, private memory, project dashboard, design studio, app builder, shop planner, and launch controls.</textarea>
+              <div class="composer-actions">
+                <select id="agentSelect" aria-label="Agent">
+                  <option value="orchestrator">Orchestrator</option>
+                  <option value="designer">Design Agent</option>
+                  <option value="builder">Code Agent</option>
+                  <option value="commerce">Commerce Agent</option>
+                  <option value="analyst">Research Agent</option>
+                  <option value="security">Security Agent</option>
+                </select>
+                <button type="submit">Generate Plan</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="canvas-area" aria-label="Live workspace preview">
+            <div class="panel-title">
+              <span>Live Canvas</span>
+              <strong id="modeLabel">Command</strong>
+            </div>
+            <div class="preview">
+              <div class="signal-map" aria-hidden="true">
+                <span class="node node-a"></span>
+                <span class="node node-b"></span>
+                <span class="node node-c"></span>
+                <span class="beam beam-a"></span>
+                <span class="beam beam-b"></span>
+                <span class="core">F1</span>
+              </div>
+              <div class="preview-card">
+                <span id="previewType">Original AI system</span>
+                <h2 id="previewTitle">Personal command layer</h2>
+                <p id="previewBody">A privacy-first operating surface that coordinates specialist agents without copying any existing product identity.</p>
+              </div>
+            </div>
+            <div class="tool-row" aria-label="Quick tools">
+              <button type="button" data-tool="Brief">Brief</button>
+              <button type="button" data-tool="Brand">Brand</button>
+              <button type="button" data-tool="Store">Store</button>
+              <button type="button" data-tool="App">App</button>
+              <button type="button" data-tool="Launch">Launch</button>
+            </div>
+          </section>
+
+          <section class="agent-board" aria-label="Agent routing">
+            <div class="panel-title">
+              <span>Agent Routing</span>
+              <strong id="activeAgents">6 lanes</strong>
+            </div>
+            <div class="agent-list" id="agentList"></div>
+          </section>
+
+          <section class="build-plan" aria-label="Generated plan">
+            <div class="panel-title">
+              <span>Build Plan</span>
+              <strong id="planStatus">Draft</strong>
+            </div>
+            <ol id="planList"></ol>
+          </section>
+        </section>
+
+        <section class="lower-grid" id="projects" aria-label="Projects and vault">
+          <section class="project-panel">
+            <div class="panel-title">
+              <span>Project Launchpad</span>
+              <strong id="projectCount">0 saved</strong>
+            </div>
+            <form class="project-form" id="projectForm">
+              <input id="projectName" placeholder="New project name" />
+              <select id="projectType" aria-label="Project type">
+                <option>AI App</option>
+                <option>Online Store</option>
+                <option>Brand Kit</option>
+                <option>Content System</option>
+                <option>Research Sprint</option>
+              </select>
+              <button type="submit">Add Project</button>
+            </form>
+            <div class="project-list" id="projectList"></div>
+          </section>
+
+          <section class="vault-panel" id="vault" aria-label="Private vault notes">
+            <div class="panel-title">
+              <span>Private Vault</span>
+              <strong>Local memory</strong>
+            </div>
+            <textarea id="vaultNotes" rows="8" placeholder="Save your brand rules, private ideas, product notes, app requirements, and launch constraints here."></textarea>
+            <div class="vault-actions">
+              <button type="button" id="saveVault">Save Vault</button>
+              <span id="vaultStatus">Not saved yet</span>
+            </div>
+          </section>
+        </section>
+
+        <section class="systems-grid" id="launch" aria-label="Legitimacy and integrations">
+          <section class="legit-panel">
+            <div class="panel-title">
+              <span>Legit Checklist</span>
+              <strong id="checkCount">0/6</strong>
+            </div>
+            <div class="check-list" id="checkList"></div>
+          </section>
+
+          <section class="integration-panel">
+            <div class="panel-title">
+              <span>Integration Roadmap</span>
+              <strong>Next build</strong>
+            </div>
+            <div class="integration-list">
+              <article>
+                <strong>Backend</strong>
+                <p>Convex or Base44 for login, projects, files, and saved agent runs.</p>
+              </article>
+              <article>
+                <strong>AI Models</strong>
+                <p>Provider keys stay server-side. Agents get scoped permissions and approval gates.</p>
+              </article>
+              <article>
+                <strong>Design Exports</strong>
+                <p>Canva-style assets are exported as original brand kits, posts, and presentation briefs.</p>
+              </article>
+              <article>
+                <strong>Security</strong>
+                <p>Audit logs, publish confirmations, data boundaries, and private-by-default settings.</p>
+              </article>
+            </div>
+          </section>
+        </section>
+
+        <section class="access-grid" id="access" aria-label="Pricing and beta access">
+          <section class="pricing-panel">
+            <div class="panel-title">
+              <span>Paid Path</span>
+              <strong>Beta pricing</strong>
+            </div>
+            <div class="pricing-list">
+              <article class="price-card">
+                <span>Starter</span>
+                <strong>$19/mo</strong>
+                <p>Personal workspace, local vault, project planning, launch checklist, and beta updates.</p>
+                <button type="button" data-plan-choice="Starter">Select Starter</button>
+              </article>
+              <article class="price-card featured">
+                <span>Builder</span>
+                <strong>$49/mo</strong>
+                <p>Everything in Starter plus multi-project workflows, agent presets, and priority backend rollout.</p>
+                <button type="button" data-plan-choice="Builder">Select Builder</button>
+              </article>
+              <article class="price-card">
+                <span>Studio</span>
+                <strong>$149/mo</strong>
+                <p>For client work, brand systems, app/store launch planning, and private approval gates.</p>
+                <button type="button" data-plan-choice="Studio">Select Studio</button>
+              </article>
+            </div>
+          </section>
+
+          <section class="access-panel">
+            <div class="panel-title">
+              <span>Beta Access</span>
+              <strong id="selectedPlan">No plan selected</strong>
+            </div>
+            <form class="beta-form" id="betaForm">
+              <label>
+                <span>Name</span>
+                <input id="betaName" autocomplete="name" placeholder="Your name" />
+              </label>
+              <label>
+                <span>Email</span>
+                <input id="betaEmail" autocomplete="email" inputmode="email" placeholder="you@example.com" />
+              </label>
+              <label>
+                <span>Use case</span>
+                <textarea id="betaUseCase" rows="4" placeholder="What do you want ForgeOne to build, plan, or manage for you?"></textarea>
+              </label>
+              <button type="submit">Save Beta Interest</button>
+            </form>
+            <p class="beta-status" id="betaStatus">Payments are not connected yet. This saves local interest until Stripe or another checkout is added.</p>
+          </section>
+        </section>
+      </section>
+    </main>
+    <script src="./app.js?v=20260709b"></script>
+  </body>
+</html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ForgeOne AI Workspace</title>
     <link rel="stylesheet" href="./styles.css?v=20260709" />
   </head>
   <body>
